@@ -1,0 +1,135 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Chuyển Video Thành Văn Bản</title>
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}">
+   
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>🎬 CHUYEN VIDEO THANH VAN BAN</h1>
+
+    <p class="description">
+        Công cụ chuyển giọng nói trong video thành văn bản
+        bằng trí tuệ nhân tạo Whisper AI.
+    </p>
+
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    <form action="/transcribe"
+          method="POST"
+          enctype="multipart/form-data"
+          id="uploadForm">
+
+        <label class="upload-btn">Chọn video:</label>
+
+        <input type="file"
+               name="video"
+               accept="video/*"
+               required>
+
+        <label>Chọn ngôn ngữ:</label>
+
+        <select name="language">
+            <option value="vi" selected>Tiếng Việt</option>
+            <option value="en">Tiếng Anh</option>
+            <option value="auto">Tự động nhận diện</option>
+        </select>
+
+        <label>Chất lượng nhận diện:</label>
+
+        <select name="model">
+            <option value="tiny">Tiny - Nhanh nhất</option>
+            <option value="base" selected>Base - Cân bằng</option>
+            <option value="small">Small - Chính xác hơn</option>
+            <option value="medium">Medium - Chất lượng cao</option>
+        </select>
+
+        <p class="note">
+            Model càng lớn thì thường càng chính xác,
+            nhưng cần nhiều RAM và thời gian xử lý hơn.
+        </p>
+
+        <button type="submit" id="submitBtn">
+            🚀 BẮT ĐẦU CHUYỂN VĂN BẢN
+        </button>
+
+    </form>
+
+    <div class="loading" id="loading">
+        ⏳ Đang phân tích video, vui lòng chờ...
+    </div>
+
+    {% if result is defined %}
+
+    <div class="result">
+
+        <h2>✅ Kết quả nhận diện</h2>
+
+        <p><b>Video:</b> {{ video_name }}</p>
+
+        <label>Nội dung văn bản:</label>
+
+        <textarea id="resultText">{{ result }}</textarea>
+
+        <div class="downloads">
+
+            <a class="download"
+               href="{{ url_for('download', filename=txt_name) }}">
+                📄 Tải file TXT
+            </a>
+
+            <a class="download"
+               href="{{ url_for('download', filename=srt_name) }}">
+                🎞️ Tải phụ đề SRT
+            </a>
+
+            <button type="button"
+                    onclick="copyText()">
+                📋 Sao chép văn bản
+            </button>
+
+        </div>
+
+    </div>
+
+    {% endif %}
+
+</div>
+
+<script>
+    document.getElementById("uploadForm").addEventListener(
+        "submit",
+        function() {
+            document.getElementById("loading").style.display = "block";
+            document.getElementById("submitBtn").disabled = true;
+            document.getElementById("submitBtn").innerText =
+                "ĐANG XỬ LÝ...";
+        }
+    );
+
+    function copyText() {
+        const text = document.getElementById("resultText").value;
+
+        navigator.clipboard.writeText(text)
+            .then(() => alert("Đã sao chép văn bản!"))
+            .catch(() => alert("Không thể sao chép văn bản."));
+    }
+</script>
+
+</body>
+</html>

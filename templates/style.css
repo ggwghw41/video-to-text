@@ -1,0 +1,289 @@
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 30px 15px;
+            background-image: url("./img/beautiful-purple-universe-background.jpg");
+            font-family: Arial, sans-serif;
+            color: #1e293b;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: rgba(138, 2, 138, 0.144);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 25px #00000010;
+        }
+
+        h1 {
+            text-align: center;
+            color: #fdffff;
+        }
+
+        .description {
+            text-align: center;
+            color: #fcfdff;
+            margin-bottom: 30px;
+        }
+
+        label {
+            display: block;
+            margin-top: 20px;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            font-size: 15px;
+        }
+
+        button, .download {
+            display: inline-block;
+            padding: 13px 20px;
+            border: none;
+            border-radius: 8px;
+            background: #7e03ae;
+            color: white;
+            font-size: 15px;
+            cursor: pointer;
+            text-decoration: none;
+            margin-top: 20px;
+        }
+
+        button {
+            width: 100%;
+        }
+
+        button:hover, .download:hover {
+            background: #4f0186;
+        }
+
+        .alert {
+            padding: 12px;
+            background: #fee2e2;
+            color: #991b1b;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .result {
+            max-width: 650px;
+            margin: 30px auto;
+            padding: 30px;
+            background: linear-gradient(145deg, #151329, #0F172A);
+            border: 1px solid #493477;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(139, 92, 246, 0.15);
+            color: #fff;
+            font-family: Arial, sans-serif;
+        }
+
+        .result textarea {
+            width: 100%;
+            min-height: 250px;
+            padding: 15px;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            font-size: 15px;
+            line-height: 1.7;
+            resize: vertical;
+        }
+
+        .downloads {
+              max-width: 650px;
+    margin: 30px auto;
+    padding: 30px;
+    background: linear-gradient(145deg, #151329, #0F172A);
+    border: 1px solid #493477;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(139, 92, 246, 0.15);
+    color: #fff;
+    font-family: Arial, sans-serif;
+        }
+
+        .downloads a {
+            flex: 1;
+            text-align: center;
+              width: 100%;
+            padding: 16px;
+            margin-top: 25px;
+            border: none;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #9333EA, #6366F1, #06B6D4);
+            color: white;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .loading {
+            display: none;
+            text-align: center;
+            margin-top: 20px;
+            color: #2563eb;
+            font-weight: bold;
+        }
+        .downloads a:active {
+            transform: scale(0.98);
+}
+
+.downloads a :disabled {
+    opacity: 0.6;
+    cursor: wait;
+}
+
+.download:hover{
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px #8B5CF677;
+}
+        .note {
+            color: #64748b;
+            font-size: 13px;
+            margin-top: 10px;
+        }
+#uploadForm {
+    max-width: 650px;
+    margin: 30px auto;
+    padding: 30px;
+    background: linear-gradient(145deg, #151329, #0F172A);
+    border: 1px solid #493477;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(139, 92, 246, 0.15);
+    color: #fff;
+    font-family: Arial, sans-serif;
+}
+
+/* LABEL */
+#uploadForm label {
+    display: block;
+    margin: 20px 0 10px;
+    color: #DDD6FE;
+    font-weight: 600;
+    font-size: 15px;
+}
+
+/* FILE INPUT */
+.file-upload {
+    border: 2px dashed #8B5CF6;
+    background: rgba(139, 92, 246, 0.08);
+    padding: 30px 15px;
+    border-radius: 15px;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.file-upload:hover {
+    border-color: #06B6D4;
+    background: rgba(6, 182, 212, 0.08);
+}
+
+.file-upload input {
+    display: none;
+}
+
+.file-upload .upload-icon {
+    font-size: 42px;
+    margin-bottom: 10px;
+}
+
+.file-upload .upload-text {
+    color: #fff;
+    font-weight: bold;
+}
+
+.file-upload small {
+    display: block;
+    color: #94A3B8;
+    margin-top: 8px;
+}
+
+#fileName {
+    color: #22D3EE;
+    margin-top: 12px;
+    font-size: 13px;
+    word-break: break-all;
+}
+
+/* SELECT */
+#uploadForm select {
+    width: 100%;
+    padding: 14px;
+    border-radius: 10px;
+    border: 1px solid #493477;
+    background: #1E1B35;
+    color: white;
+    outline: none;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#uploadForm select:focus {
+    border-color: #A855F7;
+    box-shadow: 0 0 10px #8B5CF655;
+}
+
+/* NOTE */
+#uploadForm .note {
+    background: rgba(6, 182, 212, 0.08);
+    border-left: 3px solid #bfe01a;
+    padding: 12px;
+    border-radius: 6px;
+    color: #94A3B8;
+    font-size: 13px;
+    line-height: 1.6;
+    margin-top: 15px;
+}
+
+/* SUBMIT BUTTON */
+#submitBtn {
+    width: 100%;
+    padding: 16px;
+    margin-top: 25px;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #9333EA, #6366F1, #06B6D4);
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#submitBtn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px #8B5CF677;
+}
+
+#submitBtn:active {
+    transform: scale(0.98);
+}
+
+#submitBtn:disabled {
+    opacity: 0.6;
+    cursor: wait;
+}
+
+/* MOBILE */
+@media(max-width: 600px) {
+    #uploadForm {
+        margin: 15px;
+        padding: 20px;
+    }}
+
+#resultText
+{
+   text-emphasis: none;
+    font-family:sans-serif ;
+}
